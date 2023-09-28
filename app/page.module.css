@@ -1,1 +1,9 @@
-
+.container {
+  display: flex;
+  justify-content: center;
+  background-image: url("../public/bg-full-moon.jpg");
+  background-size: cover;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
