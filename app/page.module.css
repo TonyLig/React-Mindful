@@ -1,9 +1,28 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-image: url("../public/bg-full-moon.jpg");
-  background-size: cover;
   width: 80%;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 10rem;
+}
+
+.main-header {
+  color: aliceblue;
+  font-size: 5rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 0.5rem;
 }

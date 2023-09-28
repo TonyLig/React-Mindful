@@ -1,18 +1,18 @@
 .btn {
   transition: all 0.3s ease-in-out;
-  font-family: "Dosis", sans-serif;
 }
 
 .btn {
-  width: 150px;
-  height: 60px;
-  border-radius: 50px;
+  margin: 0.8rem;
+  width: 15rem;
+  height: 6rem;
+  border-radius: 5rem;
   background-image: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
-  box-shadow: 0 20px 30px -6px rgba(238, 103, 97, 0.5);
+  box-shadow: 0 2rem 3rem -6px rgba(238, 103, 97, 0.5);
   outline: none;
   cursor: pointer;
   border: none;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: white;
 }
 

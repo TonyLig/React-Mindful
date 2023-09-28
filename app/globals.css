@@ -8,7 +8,14 @@
   margin: 0;
 }
 
-body {
+html {
   line-height: 1.5;
   font-size: 62.5%;
+}
+
+body {
+  background-image: url("../public/bg-full-moon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -40rem;
 }

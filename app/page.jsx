@@ -1,18 +1,21 @@
 import styles from "./page.module.css";
 import Button from "../components/Button";
 import Logo from "@/components/Logo";
+import BrandHeader from "@/components/BrandHeader";
 
 export default function Home() {
   return (
     <>
       <main>
         <div className={styles.container}>
-          <header>
+          <header className={styles["header-container"]}>
             <Logo />
-            <h1>MEDITATION APP</h1>
+            <BrandHeader className={styles["main-header"]} />
           </header>
-          <Button />
-          <Button />
+          <div className={styles["button-container"]}>
+            <Button />
+            <Button />
+          </div>
         </div>
       </main>
     </>
