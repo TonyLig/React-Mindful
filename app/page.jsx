@@ -5,19 +5,17 @@ import BrandHeader from "@/components/BrandHeader";
 
 export default function Home() {
   return (
-    <>
-      <main>
-        <div className={styles.container}>
-          <header className={styles["header-container"]}>
-            <Logo />
-            <BrandHeader className={styles["main-header"]} />
-          </header>
-          <div className={styles["button-container"]}>
-            <Button />
-            <Button />
-          </div>
+    <main>
+      <div className={styles.container}>
+        <header className={styles["header-container"]}>
+          <Logo />
+          <BrandHeader className={styles["main-header"]} />
+        </header>
+        <div className={styles["button-container"]}>
+          <Button className={styles.btn}>Lallero</Button>
+          <Button className={styles.btn}>Lallero</Button>
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }

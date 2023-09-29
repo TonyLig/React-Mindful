@@ -1,5 +1,3 @@
-import styles from "./Button.module.css";
-
-export default function Button() {
-  return <button className={styles.btn}>Lallero</button>;
+export default function Button({ children, className }) {
+  return <button className={className}>{children}</button>;
 }
