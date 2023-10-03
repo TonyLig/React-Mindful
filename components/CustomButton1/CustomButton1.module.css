@@ -19,20 +19,6 @@
   transition: all 0.8s;
 }
 
-.btn::after {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  top: 120%;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--glow-spread-color);
-  filter: blur(2em);
-  opacity: 0.7;
-  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
-}
-
 .btn:hover {
   color: var(--btn-color);
   background-color: var(--glow-color);
@@ -49,4 +35,9 @@
 
 .btn-margin {
   margin-bottom: 3rem;
+}
+
+.btn-inactive {
+  pointer-events: none;
+  background-color: #969696;
 }

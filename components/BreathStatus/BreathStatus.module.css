@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.breaths {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.instructions {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+
+.button-inactive {
+  pointer-events: none;
+  background-color: #969696;
+}
