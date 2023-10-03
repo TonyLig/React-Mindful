@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import styles from "./breath.module.css";
 import ControlledSelect from "@/components/ControlledSelect/ControlledSelect";
 import CircleProgressBar from "@/components/CircleProgressBar/CircleProgressBar";
@@ -23,7 +24,7 @@ export default function BreathPage() {
   // Initial states
   const [selectedOption, setSelectedOption] = useState(3);
   const [breathsLeft, setBreathsLeft] = useState(3);
-  const [disableButton, setDisableButton] = useState(false);
+  const [disableInput, setDisableInput] = useState(false);
   const [activeCircle, setActiveCircle] = useState(false);
   const [breathText, setBreathText] = useState(
     "Are you ready to start breathing?"
@@ -40,7 +41,7 @@ export default function BreathPage() {
       // Reset everything when the number of breaths is completed
       setBreathsLeft(selectedOption);
       setBreathText("Are you ready to start breathing?");
-      setDisableButton(false);
+      setDisableInput(false);
       return;
     }
     if (breathsLeft !== selectedOption) {
@@ -62,7 +63,7 @@ export default function BreathPage() {
 
   // Handle click on the "Begin" button
   function handleClick() {
-    if (breathsLeft > 0) setDisableButton(true);
+    if (breathsLeft > 0) setDisableInput(true);
     setBreathsLeft(breathsLeft - 1);
   }
 
@@ -93,6 +94,7 @@ export default function BreathPage() {
         options={options}
         value={selectedOption}
         onChange={handleSelectChange}
+        disable={disableInput}
       />
       <CircleProgressBar active={activeCircle} />
       <BreathStatus
@@ -100,9 +102,12 @@ export default function BreathPage() {
         breathsLeft={breathsLeft}
         selectedOption={selectedOption}
       />
-      <CustomButton1 onClick={handleClick} disable={disableButton}>
+      <CustomButton1 onClick={handleClick} disable={disableInput} addMargin>
         Begin
       </CustomButton1>
+      <Link href={"/"}>
+        <CustomButton1 addMarginTop>Home</CustomButton1>
+      </Link>
     </main>
   );
 }

@@ -13,10 +13,11 @@ export default function Home() {
       </header>
       <div className={styles["button-container"]}>
         <Link href={"/breath"}>
-          <CustomButton1 addMargin>Breath</CustomButton1>
+          <CustomButton1 addMarginBottom>Breath</CustomButton1>
         </Link>
+
         <Link href={"/breath"}>
-          <CustomButton1 addMargin>Meditate</CustomButton1>
+          <CustomButton1>Meditate</CustomButton1>
         </Link>
       </div>
     </main>
