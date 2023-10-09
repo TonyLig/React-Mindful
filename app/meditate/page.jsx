@@ -1,31 +1,60 @@
 "use client";
+import { useState } from "react";
 import styles from "./meditate.module.css";
-import { useState, useEffect } from "react";
-import ControlledSelect from "@/components/ControlledSelect/ControlledSelect";
+import TimerControls from "../../components/TimerControls/TimerControls";
+import AudioPlayer from "../../components/AudioPlayer/Audioplayer";
+import ControlledSelect from "../../components/ControlledSelect/ControlledSelect";
+import CircleProgressMeditate from "../../components/CircleProgressMeditate/CircleProgressMeditate";
 
-// Values for the reusable select
-const options = [
-  { value: "../../public/sounds/forest.mp3", label: "Forest" },
-  { value: "../../public/sounds/park.mp3", label: "Park" },
-  { value: "../../public/sounds/rain.mp3", label: "Rain" },
-  { value: "../../public/sounds/stream.mp3", label: "Stram" },
-  { value: "../../public/sounds/waves.mp3", label: "Waves" },
-];
+function CountdownTimer() {
+  const [isActive, setIsActive] = useState(false);
+  const [selectedAudio, setSelectedAudio] = useState("");
+  const [countdownTime, setCountdownTime] = useState(0);
 
-function handleSelectChange(e) {
-  setSelectedOption(e.target.value);
-}
+  const toggleTimer = () => {
+    setIsActive(!isActive);
+  };
 
-export default function MeditatePage() {
-  const [selectedOption, setSelectedOption] = useState("");
+  const handleAudioChange = (e) => {
+    setSelectedAudio(e.target.value);
+  };
+
+  const handleCountdownTimeChange = (seconds) => {
+    setCountdownTime(seconds);
+  };
+
   return (
     <main className={styles.container}>
-      <label className={styles["label-text"]}>Select Sound:</label>
+      <h1>Countdown Timer</h1>
+      <p>{countdownTime} seconds</p>
       <ControlledSelect
-        options={options}
-        value={selectedOption}
-        onChange={handleSelectChange}
+        options={[
+          { value: "../../public/sounds/forest.mp3", label: "Forest" },
+          { value: "../../public/sounds/park.mp3", label: "Park" },
+          { value: "../../public/sounds/rain.mp3", label: "Rain" },
+          { value: "../../public/sounds/stream.mp3", label: "Stream" },
+          { value: "../../public/sounds/waves.mp3", label: "Waves" },
+        ]}
+        value={selectedAudio}
+        onChange={handleAudioChange}
+        disable={false}
+      />
+      <TimerControls
+        isActive={isActive}
+        toggleTimer={toggleTimer}
+        resetTimer={() => {
+          setIsActive(false);
+          setCountdownTime(0);
+        }}
+      />
+      <AudioPlayer isActive={isActive} selectedAudio={selectedAudio} />
+      <CircleProgressMeditate
+        timeInSeconds={countdownTime}
+        isActive={isActive}
+        stopTimer={() => setIsActive(false)}
       />
     </main>
   );
 }
+
+export default CountdownTimer;
