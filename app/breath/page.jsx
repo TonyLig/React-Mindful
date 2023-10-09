@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./breath.module.css";
 import ControlledSelect from "@/components/ControlledSelect/ControlledSelect";
-import CircleProgressBar from "@/components/CircleProgressBar/CircleProgressBar";
+import CircleProgressBreath from "@/components/CircleProgressBreath/CircleProgressBreath";
 import BreathStatus from "@/components/BreathStatus/BreathStatus";
 import CustomButton1 from "@/components/CustomButton1/CustomButtom1";
 
@@ -96,7 +96,7 @@ export default function BreathPage() {
         onChange={handleSelectChange}
         disable={disableInput}
       />
-      <CircleProgressBar active={activeCircle} />
+      <CircleProgressBreath active={activeCircle} />
       <BreathStatus
         text={breathText}
         breathsLeft={breathsLeft}
