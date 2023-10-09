@@ -16,7 +16,7 @@ export default function Home() {
           <CustomButton1 addMarginBottom>Breath</CustomButton1>
         </Link>
 
-        <Link href={"/breath"}>
+        <Link href={"/meditate"}>
           <CustomButton1>Meditate</CustomButton1>
         </Link>
       </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo1 from "../../public/logo1.png";
+import logo1 from "../../public/images/logo1.png";
 
 export default function Logo() {
   return (
