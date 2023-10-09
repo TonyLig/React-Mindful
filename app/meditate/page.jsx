@@ -17,7 +17,7 @@ function handleSelectChange(e) {
 }
 
 export default function MeditatePage() {
-  const [selectedOption, setSelectedOption] = useState(3);
+  const [selectedOption, setSelectedOption] = useState("");
   return (
     <main className={styles.container}>
       <label className={styles["label-text"]}>Select Sound:</label>

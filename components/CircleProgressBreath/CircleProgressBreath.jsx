@@ -1,7 +1,7 @@
-import styles from "./CircleProgressBar.module.css";
+import styles from "./CircleProgressBreath.module.css";
 import Logo from "../Logo/Logo";
 
-export default function CircleProgressBar({ active }) {
+export default function CircleProgressBreath({ active }) {
   const circleGrow = active ? styles["circle-grow"] : "";
   return (
     <div className={styles["circle-wrap"]}>
