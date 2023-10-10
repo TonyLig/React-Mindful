@@ -49,8 +49,7 @@ export default function BreathPage() {
       setTimeout(() => {
         setBreathsLeft(breathsLeft - 1);
       }, totalTime);
-      // Update the breath text and circle animation
-      breathTextUpdate();
+      breathTextUpdate(); // Update the breath text and circle animation
       circleUpdate();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -90,6 +89,7 @@ export default function BreathPage() {
   return (
     <main className={styles.container}>
       <label className={styles["label-text"]}>Select Breaths:</label>
+
       <ControlledSelect
         options={options}
         value={selectedOption}

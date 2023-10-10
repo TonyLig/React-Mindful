@@ -6,52 +6,33 @@ import AudioPlayer from "../../components/AudioPlayer/Audioplayer";
 import ControlledSelect from "../../components/ControlledSelect/ControlledSelect";
 import CircleProgressMeditate from "../../components/CircleProgressMeditate/CircleProgressMeditate";
 
+import forest from "../../public/sounds/forest.mp3";
+import park from "../../public/sounds/park.mp3";
+import rain from "../../public/sounds/rain.mp3";
+import stream from "../../public/sounds/stream.mp3";
+import waves from "../../public/sounds/waves.mp3";
+
 export default function CountdownTimer() {
   const [isActive, setIsActive] = useState(false);
-  const [selectedAudio, setSelectedAudio] = useState("");
-
+  const [selectedAudio, setSelectedAudio] = useState(forest);
   const [toggleForm, setToggleForm] = useState(false);
-  // Store the input min(s)
-  const [timeInput, setTimeInput] = useState(1);
-  // Toggle start and stop
-  const [countDownStarted, setCountDownStarted] = useState(false);
-  // Time in milliseconds
-  const [timeInMilliseconds, setTimeInMilliseconds] = useState(0);
+  const [timeInput, setTimeInput] = useState(1); // Store the input min(s)
+  const [countDownStarted, setCountDownStarted] = useState(false); // Toggle start and stop
+  const [timeInMilliseconds, setTimeInMilliseconds] = useState(0); // Time in milliseconds
 
   const countDownTime = new Date().getTime() + timeInMilliseconds; // Get time ahead in millisecond
   const animationDuration = (countDownTime - new Date().getTime()) / 1000 / 2;
 
   const options = [
-    { value: "../../public/sounds/forest.mp3", label: "Forest" },
-    { value: "../../public/sounds/park.mp3", label: "Park" },
-    { value: "../../public/sounds/rain.mp3", label: "Rain" },
-    { value: "../../public/sounds/stream.mp3", label: "Stream" },
-    { value: "../../public/sounds/waves.mp3", label: "Waves" },
+    { value: forest, label: "Forest" },
+    { value: park, label: "Park" },
+    { value: rain, label: "Rain" },
+    { value: stream, label: "Stream" },
+    { value: waves, label: "Waves" },
   ];
-
-  function toggleTimer() {
-    setIsActive(!isActive);
-  }
 
   function handleAudioChange(e) {
     setSelectedAudio(e.target.value);
-  }
-
-  function startTimer() {
-    setCountDownStarted(true);
-    if (toggleForm) {
-      setToggleForm(false);
-    }
-    setTimeInMilliseconds(timeInput * 60 * 1000);
-  }
-
-  function stopTimer() {
-    setCountDownStarted(false);
-    setTimeInMilliseconds(0);
-  }
-
-  function onToggle() {
-    setToggleForm((toggle) => (toggle = !toggle));
   }
 
   // Get time from input and set time input
@@ -60,16 +41,32 @@ export default function CountdownTimer() {
     setTimeInput(inputData);
   }
 
+  function startTimer() {
+    setCountDownStarted(true);
+    setIsActive(true);
+    if (toggleForm) {
+      setToggleForm(false);
+    }
+    setTimeInMilliseconds(timeInput * 60 * 1000);
+  }
+
+  function stopTimer() {
+    setCountDownStarted(false);
+    setIsActive(false);
+    setTimeInMilliseconds(0);
+  }
+
+  function onToggle() {
+    setToggleForm((toggle) => (toggle = !toggle));
+  }
+
   return (
     <main className={styles.container}>
       <h1>Countdown Timer</h1>
-      <ControlledSelect
-        options={options}
-        value={selectedAudio}
-        onChange={handleAudioChange}
-        disable={false}
-      />
-      <AudioPlayer isActive={toggleTimer} selectedAudio={selectedAudio} />
+      <ControlledSelect {...{ options, selectedAudio, handleAudioChange }} />
+
+      <AudioPlayer {...{ isActive, selectedAudio }} />
+
       <CircleProgressMeditate
         {...{
           timeInMilliseconds,
@@ -79,6 +76,7 @@ export default function CountdownTimer() {
           animationDuration,
         }}
       />
+      
       <TimerControls
         {...{
           toggleForm,
