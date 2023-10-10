@@ -8,13 +8,14 @@ function CircleProgressMeditate({
   countDownStarted,
   countDownTime,
   animationDuration,
+  timeInput,
 }) {
   const [seconds, minutes] = useCountDown({
     timeInMilliseconds,
     countDownStarted,
     countDownTime,
   });
-
+  const showTotalTime = timeInput < 10 ? "0" + timeInput : timeInput;
   const coMin = minutes < 10 ? "0" + minutes : minutes;
   const coSec = seconds < 10 ? "0" + seconds : seconds;
 
@@ -26,17 +27,17 @@ function CircleProgressMeditate({
   }, [minutes, seconds]);
 
   return (
-    <div className={styles.pgContainer}>
-      <div className={styles.pgWidget}>
-        <div className={styles.pgWidgetInner} />
-        <div className={styles.pgWidgetNumber}>
-          {coMin}:{coSec}
+    <div className={styles["prg-container"]}>
+      <div className={styles["prg-widget"]}>
+        <div className={styles["prg-widget-Inner"]} />
+        <div className={styles["prg-widget-number"]}>
+          {!countDownStarted ? `${showTotalTime}:00` : `${coMin}:${coSec}`}
         </div>
 
-        <div className={styles.circle}>
-          <div className={styles.pgWidgetBarL}>
+        <div className={styles["prg-main-circle"]}>
+          <div className={styles["prg-widget-bar-left"]}>
             <div
-              className={styles.pgWidgetProgressLeft}
+              className={styles["prg-widget-progress-left"]}
               style={{
                 animation:
                   timeInMilliseconds > 0
@@ -45,9 +46,9 @@ function CircleProgressMeditate({
               }}
             />
           </div>
-          <div className={styles.pgWidgetBarR}>
+          <div className={styles["prg-widget-bar-right"]}>
             <div
-              className={styles.pgWidgetProgressRight}
+              className={styles["prg-widget-progress-right"]}
               style={{
                 animation:
                   timeInMilliseconds > 0

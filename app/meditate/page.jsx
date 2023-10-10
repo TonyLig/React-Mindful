@@ -63,9 +63,14 @@ export default function CountdownTimer() {
   return (
     <main className={styles.container}>
       <h1>Countdown Timer</h1>
-      <ControlledSelect {...{ options, selectedAudio, handleAudioChange }} />
 
-      <AudioPlayer {...{ isActive, selectedAudio }} />
+      <ControlledSelect
+        options={options}
+        value={selectedAudio}
+        onChange={handleAudioChange}
+      />
+
+      <AudioPlayer isActive={isActive} selectedAudio={selectedAudio} />
 
       <CircleProgressMeditate
         {...{
@@ -74,9 +79,10 @@ export default function CountdownTimer() {
           countDownStarted,
           countDownTime,
           animationDuration,
+          timeInput,
         }}
       />
-      
+
       <TimerControls
         {...{
           toggleForm,
