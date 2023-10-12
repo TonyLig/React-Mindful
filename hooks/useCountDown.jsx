@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+
 export default function useCountDown({
   timeInMilliseconds,
   countDownStarted,
   countDownTime,
 }) {
+  // Initialize countDownInMilliseconds with the initial value
   const [countDownInMilliseconds, setCountDown] = useState(
     countDownTime - new Date().getTime()
   );

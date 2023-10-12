@@ -11,6 +11,7 @@ export default function Home() {
         <Logo />
         <BrandHeader className={styles["main-header"]} />
       </header>
+
       <div className={styles["button-container"]}>
         <Link href={"/breath"}>
           <CustomButton1 addMarginBottom>Breath</CustomButton1>

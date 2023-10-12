@@ -1,6 +1,7 @@
 import { useEffect, memo } from "react";
 import useCountDown from "../../hooks/useCountDown";
 import styles from "./CircleProgressMeditate.module.css";
+import Logo from "../Logo/Logo";
 
 function CircleProgressMeditate({
   timeInMilliseconds,
@@ -8,6 +9,7 @@ function CircleProgressMeditate({
   countDownStarted,
   countDownTime,
   animationDuration,
+  timeInput,
 }) {
   const [seconds, minutes] = useCountDown({
     timeInMilliseconds,
@@ -15,28 +17,33 @@ function CircleProgressMeditate({
     countDownTime,
   });
 
+  // UI time add "0"
+  const showTotalTime = timeInput < 10 ? "0" + timeInput : timeInput;
   const coMin = minutes < 10 ? "0" + minutes : minutes;
   const coSec = seconds < 10 ? "0" + seconds : seconds;
 
+  // Use useEffect to stop the timer when time is up
   useEffect(() => {
     if (minutes + seconds <= 0) {
       stopTimer();
       return;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minutes, seconds]);
 
   return (
-    <div className={styles.pgContainer}>
-      <div className={styles.pgWidget}>
-        <div className={styles.pgWidgetInner} />
-        <div className={styles.pgWidgetNumber}>
-          {coMin}:{coSec}
+    <div className={styles["prg-container"]}>
+      <div className={styles["prg-widget"]}>
+        <div className={styles["prg-widget-Inner"]} />
+        <div className={styles["prg-widget-number"]}>
+          <Logo />
+          {!countDownStarted ? `${showTotalTime}:00` : `${coMin}:${coSec}`}
         </div>
 
-        <div className={styles.circle}>
-          <div className={styles.pgWidgetBarL}>
+        <div className={styles["prg-main-circle"]}>
+          <div className={styles["prg-widget-bar-left"]}>
             <div
-              className={styles.pgWidgetProgressLeft}
+              className={styles["prg-widget-progress-left"]}
               style={{
                 animation:
                   timeInMilliseconds > 0
@@ -45,9 +52,9 @@ function CircleProgressMeditate({
               }}
             />
           </div>
-          <div className={styles.pgWidgetBarR}>
+          <div className={styles["prg-widget-bar-right"]}>
             <div
-              className={styles.pgWidgetProgressRight}
+              className={styles["prg-widget-progress-right"]}
               style={{
                 animation:
                   timeInMilliseconds > 0

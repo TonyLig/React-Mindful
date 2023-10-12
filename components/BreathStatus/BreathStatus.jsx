@@ -1,6 +1,7 @@
 import styles from "./BreathStatus.module.css";
 
 export default function BreathStatus({ breathsLeft, text, selectedOption }) {
+  // Calculate the breaths to show based on the selected option and breaths left
   const breathsToShow =
     breathsLeft === selectedOption ? selectedOption : +breathsLeft + 1;
 

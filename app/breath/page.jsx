@@ -96,15 +96,19 @@ export default function BreathPage() {
         onChange={handleSelectChange}
         disable={disableInput}
       />
+
       <CircleProgressBreath active={activeCircle} />
+
       <BreathStatus
         text={breathText}
         breathsLeft={breathsLeft}
         selectedOption={selectedOption}
       />
-      <CustomButton1 onClick={handleClick} disable={disableInput} addMargin>
+
+      <CustomButton1 onClick={handleClick} disable={disableInput}>
         Begin
       </CustomButton1>
+
       <Link href={"/"}>
         <CustomButton1 addMarginTop>Home</CustomButton1>
       </Link>

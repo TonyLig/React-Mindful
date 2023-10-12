@@ -6,7 +6,9 @@ export default function ControlledSelect({
   onChange,
   disable,
 }) {
+  // Determine whether the select should be inactive (disabled) based on the 'disable' prop
   const setInactive = disable ? styles["select-inactive"] : "";
+
   return (
     <select
       className={`${styles["select-box"]} ${setInactive}`}

@@ -1,0 +1,13 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-form {
+  height: 3rem;
+  max-width: 18rem;
+  border: 0.25em solid rgb(231, 206, 255);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
