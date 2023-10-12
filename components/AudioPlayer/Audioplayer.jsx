@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
+
 export default function AudioPlayer({ isActive, selectedAudio }) {
   const audioRef = useRef(null);
 
+  // Use useEffect to control audio playback
   useEffect(() => {
     const audio = audioRef.current;
     if (isActive) {

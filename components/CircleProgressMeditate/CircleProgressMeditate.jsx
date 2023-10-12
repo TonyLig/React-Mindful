@@ -1,6 +1,7 @@
 import { useEffect, memo } from "react";
 import useCountDown from "../../hooks/useCountDown";
 import styles from "./CircleProgressMeditate.module.css";
+import Logo from "../Logo/Logo";
 
 function CircleProgressMeditate({
   timeInMilliseconds,
@@ -15,15 +16,19 @@ function CircleProgressMeditate({
     countDownStarted,
     countDownTime,
   });
+
+  // UI time add "0"
   const showTotalTime = timeInput < 10 ? "0" + timeInput : timeInput;
   const coMin = minutes < 10 ? "0" + minutes : minutes;
   const coSec = seconds < 10 ? "0" + seconds : seconds;
 
+  // Use useEffect to stop the timer when time is up
   useEffect(() => {
     if (minutes + seconds <= 0) {
       stopTimer();
       return;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [minutes, seconds]);
 
   return (
@@ -31,6 +36,7 @@ function CircleProgressMeditate({
       <div className={styles["prg-widget"]}>
         <div className={styles["prg-widget-Inner"]} />
         <div className={styles["prg-widget-number"]}>
+          <Logo />
           {!countDownStarted ? `${showTotalTime}:00` : `${coMin}:${coSec}`}
         </div>
 
