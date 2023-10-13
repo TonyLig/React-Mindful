@@ -9,7 +9,7 @@ Mindful is a meditation app designed to help users find tranquility and mindfuln
 
 ## Live Demo
 
-Check out the live demo of Mindful at: [Mindful Live Demo](https://your-mindful-app-demo-url-here)
+Check out the live demo of Mindful at: [Mindful Live Demo](https://react-mindful.vercel.app/)
 
 ## Installation
 
@@ -35,11 +35,8 @@ To run Mindful on your local machine, follow these steps:
 
 Here are some screenshots of the Mindful app:
 
-- Home
-  ![Home](./readme/home-section.png)
+![Home](./readme/home-section.png)
 
-- Breath Section
-  ![Breath Section](./readme/breath-section.png)
+![Breath Section](./readme/breath-section.png)
 
-- Meditate Section
-  ![Meditate Section](./readme/meditate-section.png)
+![Meditate Section](./readme/meditate-section.png)
