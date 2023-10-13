@@ -18,7 +18,6 @@ function CircleProgressMeditate({
   });
 
   // UI time add "0"
-  const showTotalTime = timeInput < 10 ? "0" + timeInput : timeInput;
   const coMin = minutes < 10 ? "0" + minutes : minutes;
   const coSec = seconds < 10 ? "0" + seconds : seconds;
 
@@ -37,7 +36,18 @@ function CircleProgressMeditate({
         <div className={styles["prg-widget-Inner"]} />
         <div className={styles["prg-widget-number"]}>
           <Logo />
-          {!countDownStarted ? `${showTotalTime}:00` : `${coMin}:${coSec}`}
+          {!timeInput && "00:00"}
+          {!countDownStarted &&
+            timeInput &&
+            timeInput.toString().padStart(2, 0) + ":00"}
+          {countDownStarted &&
+            timeInput &&
+            seconds === 0 &&
+            timeInput.toString().padStart(2, 0) + ":00"}
+          {countDownStarted &&
+            timeInput &&
+            seconds !== 0 &&
+            coMin + ":" + coSec}
         </div>
 
         <div className={styles["prg-main-circle"]}>

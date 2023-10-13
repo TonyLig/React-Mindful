@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./meditate.module.css";
-import CustomButton1 from "@/components/CustomButton1/CustomButtom1";
+import CustomButton1 from "@/components/CustomButton1/CustomButton1";
 import TimerControls from "../../components/TimerControls/TimerControls";
 import AudioPlayer from "../../components/AudioPlayer/Audioplayer";
 import ControlledSelect from "../../components/ControlledSelect/ControlledSelect";

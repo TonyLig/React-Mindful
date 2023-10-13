@@ -1,4 +1,4 @@
-import CustomButton1 from "../CustomButton1/CustomButtom1";
+import CustomButton1 from "../CustomButton1/CustomButton1";
 import styles from "./TimerControl.module.css";
 
 export default function TimerControls({

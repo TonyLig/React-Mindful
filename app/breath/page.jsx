@@ -6,7 +6,7 @@ import styles from "./breath.module.css";
 import ControlledSelect from "@/components/ControlledSelect/ControlledSelect";
 import CircleProgressBreath from "@/components/CircleProgressBreath/CircleProgressBreath";
 import BreathStatus from "@/components/BreathStatus/BreathStatus";
-import CustomButton1 from "@/components/CustomButton1/CustomButtom1";
+import CustomButton1 from "@/components/CustomButton1/CustomButton1";
 
 // Constants for breath timings
 const totalTime = 12000;
